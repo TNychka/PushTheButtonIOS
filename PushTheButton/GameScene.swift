@@ -32,18 +32,18 @@ class GameScene: SKScene {
         physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
         
         
-        happyLabel.position = CGPoint(x: 100,y: view.bounds.height - 30)
+        happyLabel.position = CGPoint(x: 10,y: view.bounds.height - 30)
         happyLabel.fontName = "AvenirNext-Heavy"
         happyLabel.fontColor = UIColor.white
         happyLabel.horizontalAlignmentMode = .left
         weak var weakSelf = self
         if let weakSelf = weakSelf {
-            happyLabel.text = "Happy: \(weakSelf.gameSceneDelegate!.getHappy())"
+            happyLabel.text = "Happiness: \(weakSelf.gameSceneDelegate!.getHappy())"
             addChild(weakSelf.gameSceneDelegate!.getButton())
         }
         addChild(happyLabel)
         
-        scoreLabel.position = CGPoint(x: 100,y: view.bounds.height - 70)
+        scoreLabel.position = CGPoint(x: 10,y: view.bounds.height - 70)
         scoreLabel.fontName = "AvenirNext-Heavy"
         scoreLabel.fontColor = UIColor.white
         scoreLabel.horizontalAlignmentMode = .left
@@ -75,8 +75,8 @@ class GameScene: SKScene {
                         bod.velocity = CGVector(dx: x, dy: y)
                     }
                     let pointsAction = SKAction.sequence([
-                        SKAction.wait(forDuration: 2),
-                        SKAction.fadeOut(withDuration: 1),
+                        SKAction.wait(forDuration: 1),
+                        SKAction.fadeOut(withDuration: 0.5),
                         SKAction.removeFromParent()
                         ])
                     points.run(SKAction.group([pointsAction]))
@@ -100,7 +100,7 @@ class GameScene: SKScene {
             let happy = weakSelf.gameSceneDelegate!.getHappy()
             let score = weakSelf.gameSceneDelegate!.getScore()
 
-            happyLabel.text = "Happy: \(happy)"
+            happyLabel.text = "Happiness: \(happy)"
             scoreLabel.text = "Score: \(score)"
 
         }

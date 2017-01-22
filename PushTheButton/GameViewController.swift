@@ -43,6 +43,20 @@ class GameViewController: UIViewController, GameSceneDelegate, GameOverViewContr
         return true
     }
     
+    func valueRelativeToHappy() -> Int {
+        if (getHappy() <= 10) {
+            return 1
+        } else if (getHappy() <= 20) {
+            return 1
+        } else if (getHappy() <= 30) {
+            return 1
+        } else if (getHappy() <= 50) {
+            return 2
+        } else {
+            return 3
+        }
+    }
+    
     
     func updateButton() {
         if let button = button {
@@ -50,23 +64,22 @@ class GameViewController: UIViewController, GameSceneDelegate, GameOverViewContr
         }
         if (getHappy() <= 0){
             button?.faceLabel.text = "X("
-            sleep(2)
-            didEnd()
+            Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(GameViewController.didEnd), userInfo: nil, repeats: false)
         } else if (getHappy() <= 10) {
             button?.faceLabel.text = ":'("
-            score += 1
+            score += valueRelativeToHappy()
         } else if (getHappy() <= 20) {
             button?.faceLabel.text = ":("
-            score += 1
+            score += valueRelativeToHappy()
         } else if (getHappy() <= 30) {
             button?.faceLabel.text = ":|"
-            score += 1
+            score += valueRelativeToHappy()
         } else if (getHappy() <= 50) {
             button?.faceLabel.text = ":)"
-            score += 2
+            score += valueRelativeToHappy()
         } else {
             button?.faceLabel.text = ":D"
-            score += 3
+            score += valueRelativeToHappy()
         }
     }
     
@@ -80,7 +93,7 @@ class GameViewController: UIViewController, GameSceneDelegate, GameOverViewContr
     func didRestart() {
         self.gameScene = nil
         score = 0
-        let width = view.bounds.width/4
+        let width = view.bounds.width/2
         let height = view.bounds.height/4
         let center = view.center
         button = PushButtonSprite(rectOf: CGSize(width: width, height: height), location: CGPoint(x: center.x - width/2,y: center.y - height/2), cornerRadius: 10, fillColor: UIColor.red)
@@ -107,9 +120,9 @@ class GameViewController: UIViewController, GameSceneDelegate, GameOverViewContr
     }
     
     func didTap() -> Int {
-        button!.happy += 1
-        score += 1
-        return 1
+        button!.happy += valueRelativeToHappy()
+        score += valueRelativeToHappy()
+        return valueRelativeToHappy()
     }
     
     func getHappy() -> Int {

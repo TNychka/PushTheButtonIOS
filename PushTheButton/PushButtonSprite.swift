@@ -11,7 +11,7 @@ import SpriteKit
 import Foundation
 
 class PushButtonSprite: SKShapeNode {
-    var happy = 20
+    var happy = 2
     var faceLabel = SKLabelNode()
     init(rectOf: CGSize, location: CGPoint, cornerRadius: CGFloat, fillColor: UIColor) {
         super.init()
@@ -24,8 +24,8 @@ class PushButtonSprite: SKShapeNode {
         faceLabel.fontName = "AvenirNext-Heavy"
         faceLabel.fontColor = UIColor.black
         faceLabel.fontSize = 70
-        faceLabel.position.x = location.x + 30
-        faceLabel.position.y = location.y + 70
+        faceLabel.position.x = location.x + rectOf.width/2 - 20
+        faceLabel.position.y = location.y + rectOf.height/2
         faceLabel.zRotation = -1.6
         addChild(faceLabel)
     }
