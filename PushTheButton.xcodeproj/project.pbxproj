@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A3E6EFD42FF35F38F8D2AAC /* Pods_PushTheButton.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 559F1CEEC6A3BB07C8730C6C /* Pods_PushTheButton.framework */; };
 		B71A32451E341B970053206F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71A32441E341B970053206F /* AppDelegate.swift */; };
 		B71A32471E341B970053206F /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = B71A32461E341B970053206F /* GameScene.sks */; };
 		B71A324B1E341B970053206F /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71A324A1E341B970053206F /* GameScene.swift */; };
@@ -16,6 +17,8 @@
 		B71A32551E341B970053206F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B71A32531E341B970053206F /* LaunchScreen.storyboard */; };
 		B71A32601E341B970053206F /* PushTheButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71A325F1E341B970053206F /* PushTheButtonTests.swift */; };
 		B71A326B1E341B970053206F /* PushTheButtonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71A326A1E341B970053206F /* PushTheButtonUITests.swift */; };
+		B752D6041E401CF70079E3F0 /* MainMenuGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B752D6031E401CF70079E3F0 /* MainMenuGameViewController.swift */; };
+		B78868D61E40187400C6309D /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = B78868D51E40187400C6309D /* Podfile */; };
 		B79EC4CC1E346B95001681CB /* PushButtonSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79EC4CB1E346B95001681CB /* PushButtonSprite.swift */; };
 		B7F991481E3488D4006787A6 /* GameOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F991471E3488D4006787A6 /* GameOverViewController.swift */; };
 /* End PBXBuildFile section */
@@ -38,6 +41,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		31288BA367479105259E9BC2 /* Pods-PushTheButton.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PushTheButton.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PushTheButton/Pods-PushTheButton.debug.xcconfig"; sourceTree = "<group>"; };
+		42B492991D8773FFCA42B0F0 /* Pods-PushTheButton.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PushTheButton.release.xcconfig"; path = "Pods/Target Support Files/Pods-PushTheButton/Pods-PushTheButton.release.xcconfig"; sourceTree = "<group>"; };
+		559F1CEEC6A3BB07C8730C6C /* Pods_PushTheButton.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PushTheButton.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B71A32411E341B970053206F /* PushTheButton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PushTheButton.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B71A32441E341B970053206F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B71A32461E341B970053206F /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -53,6 +59,8 @@
 		B71A32661E341B970053206F /* PushTheButtonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PushTheButtonUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B71A326A1E341B970053206F /* PushTheButtonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushTheButtonUITests.swift; sourceTree = "<group>"; };
 		B71A326C1E341B970053206F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B752D6031E401CF70079E3F0 /* MainMenuGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuGameViewController.swift; sourceTree = "<group>"; };
+		B78868D51E40187400C6309D /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		B79EC4CB1E346B95001681CB /* PushButtonSprite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushButtonSprite.swift; sourceTree = "<group>"; };
 		B7F991471E3488D4006787A6 /* GameOverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -62,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A3E6EFD42FF35F38F8D2AAC /* Pods_PushTheButton.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,13 +91,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0CFB6EBB946159AFAC958BF1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				31288BA367479105259E9BC2 /* Pods-PushTheButton.debug.xcconfig */,
+				42B492991D8773FFCA42B0F0 /* Pods-PushTheButton.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		6E15926F845AA277030E0DF2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				559F1CEEC6A3BB07C8730C6C /* Pods_PushTheButton.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B71A32381E341B970053206F = {
 			isa = PBXGroup;
 			children = (
+				B78868D51E40187400C6309D /* Podfile */,
 				B71A32431E341B970053206F /* PushTheButton */,
 				B71A325E1E341B970053206F /* PushTheButtonTests */,
 				B71A32691E341B970053206F /* PushTheButtonUITests */,
 				B71A32421E341B970053206F /* Products */,
+				0CFB6EBB946159AFAC958BF1 /* Pods */,
+				6E15926F845AA277030E0DF2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,14 +134,15 @@
 		B71A32431E341B970053206F /* PushTheButton */ = {
 			isa = PBXGroup;
 			children = (
-				B71A32461E341B970053206F /* GameScene.sks */,
 				B71A32441E341B970053206F /* AppDelegate.swift */,
 				B79EC4CB1E346B95001681CB /* PushButtonSprite.swift */,
 				B71A324A1E341B970053206F /* GameScene.swift */,
+				B71A32461E341B970053206F /* GameScene.sks */,
 				B71A324C1E341B970053206F /* GameViewController.swift */,
+				B752D6031E401CF70079E3F0 /* MainMenuGameViewController.swift */,
 				B7F991471E3488D4006787A6 /* GameOverViewController.swift */,
-				B71A324E1E341B970053206F /* Main.storyboard */,
 				B71A32511E341B970053206F /* Assets.xcassets */,
+				B71A324E1E341B970053206F /* Main.storyboard */,
 				B71A32531E341B970053206F /* LaunchScreen.storyboard */,
 				B71A32561E341B970053206F /* Info.plist */,
 			);
@@ -144,9 +174,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B71A326F1E341B970053206F /* Build configuration list for PBXNativeTarget "PushTheButton" */;
 			buildPhases = (
+				231E6EE705DEC7B5D2D19480 /* [CP] Check Pods Manifest.lock */,
 				B71A323D1E341B970053206F /* Sources */,
 				B71A323E1E341B970053206F /* Frameworks */,
 				B71A323F1E341B970053206F /* Resources */,
+				2ABDA91013FCDE85DE016E3E /* [CP] Embed Pods Frameworks */,
+				B4F96A7B56AEFCE18ABED082 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -244,6 +277,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B78868D61E40187400C6309D /* Podfile in Resources */,
 				B71A32501E341B970053206F /* Main.storyboard in Resources */,
 				B71A32471E341B970053206F /* GameScene.sks in Resources */,
 				B71A32521E341B970053206F /* Assets.xcassets in Resources */,
@@ -267,6 +301,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		231E6EE705DEC7B5D2D19480 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		2ABDA91013FCDE85DE016E3E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PushTheButton/Pods-PushTheButton-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B4F96A7B56AEFCE18ABED082 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PushTheButton/Pods-PushTheButton-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B71A323D1E341B970053206F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -274,6 +356,7 @@
 			files = (
 				B71A324B1E341B970053206F /* GameScene.swift in Sources */,
 				B71A324D1E341B970053206F /* GameViewController.swift in Sources */,
+				B752D6041E401CF70079E3F0 /* MainMenuGameViewController.swift in Sources */,
 				B79EC4CC1E346B95001681CB /* PushButtonSprite.swift in Sources */,
 				B71A32451E341B970053206F /* AppDelegate.swift in Sources */,
 				B7F991481E3488D4006787A6 /* GameOverViewController.swift in Sources */,
@@ -426,8 +509,14 @@
 		};
 		B71A32701E341B970053206F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 31288BA367479105259E9BC2 /* Pods-PushTheButton.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = PushTheButton/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -439,8 +528,14 @@
 		};
 		B71A32711E341B970053206F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 42B492991D8773FFCA42B0F0 /* Pods-PushTheButton.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = PushTheButton/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

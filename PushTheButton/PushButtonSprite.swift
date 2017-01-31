@@ -11,7 +11,7 @@ import SpriteKit
 import Foundation
 
 class PushButtonSprite: SKShapeNode {
-    var happy = 2
+    var happy = 20
     var faceLabel = SKLabelNode()
     init(rectOf: CGSize, location: CGPoint, cornerRadius: CGFloat, fillColor: UIColor) {
         super.init()

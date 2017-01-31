@@ -9,8 +9,9 @@
 import UIKit
 import SpriteKit
 import GameplayKit
+import Alamofire
 
-class GameViewController: UIViewController, GameSceneDelegate, GameOverViewControllerDelegate {
+class GameViewController: UIViewController, GameSceneDelegate, GameOverViewControllerDelegate, MainMenuGameViewControllerDelegate {
     
     var button: PushButtonSprite?
     var gameScene: GameScene?
@@ -19,7 +20,11 @@ class GameViewController: UIViewController, GameSceneDelegate, GameOverViewContr
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        didRestart()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        initializeGame()
     }
 
     override var shouldAutorotate: Bool {
@@ -43,6 +48,12 @@ class GameViewController: UIViewController, GameSceneDelegate, GameOverViewContr
         return true
     }
     
+    func showMainMenu() {
+        let mainMenu = MainMenuGameViewController()
+        mainMenu.delegate = self
+        self.present(mainMenu, animated: false, completion: nil)
+    }
+    
     func valueRelativeToHappy() -> Int {
         if (getHappy() <= 10) {
             return 1
@@ -56,15 +67,14 @@ class GameViewController: UIViewController, GameSceneDelegate, GameOverViewContr
             return 3
         }
     }
-    
-    
+   
     func updateButton() {
         if let button = button {
             button.happy -= 1
         }
         if (getHappy() <= 0){
             button?.faceLabel.text = "X("
-            Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(GameViewController.didEnd), userInfo: nil, repeats: false)
+            didEnd()
         } else if (getHappy() <= 10) {
             button?.faceLabel.text = ":'("
             score += valueRelativeToHappy()
@@ -85,9 +95,23 @@ class GameViewController: UIViewController, GameSceneDelegate, GameOverViewContr
     
     func didEnd() {
         tick?.invalidate()
+        tick = nil
         let gameOver = GameOverViewController()
         gameOver.delegate = self
-        self.present(gameOver, animated: true, completion: nil)
+        self.present(gameOver, animated: true, completion: {
+            self.gameScene?.removeAllChildren()
+            self.gameScene = nil
+            self.score = 0
+            self.button = nil
+        })
+    }
+    
+    var firstStart: Bool = true
+    func initializeGame() {
+        if (firstStart) {
+            firstStart = false
+            showMainMenu()
+        }
     }
     
     func didRestart() {
@@ -110,9 +134,6 @@ class GameViewController: UIViewController, GameSceneDelegate, GameOverViewContr
                     view.presentScene(sceneNode)
                     
                     view.ignoresSiblingOrder = true
-                    
-                    view.showsFPS = true
-                    view.showsNodeCount = true
                 }
             }
         }
@@ -126,7 +147,11 @@ class GameViewController: UIViewController, GameSceneDelegate, GameOverViewContr
     }
     
     func getHappy() -> Int {
-        return button!.happy
+        if let button = button {
+            return button.happy
+        } else {
+            return 0
+        }
     }
     
     func getButton() -> PushButtonSprite {

@@ -11,7 +11,7 @@ import SpriteKit
 import GameplayKit
 
 protocol GameOverViewControllerDelegate {
-    func didRestart()
+    func showMainMenu()
     func getScore() -> Int
 }
 
@@ -37,8 +37,8 @@ class GameOverViewController: UIViewController {
             scoreLabel.textAlignment = .center
             scoreLabel.frame = CGRect(x: weakSelf.view.bounds.width/2 - 150 ,y: weakSelf.view.bounds.height/2 + 30,width: 300,height: 100)
             
-            restartButton.frame = CGRect(x: weakSelf.view.bounds.width/2 - 50 ,y: weakSelf.view.bounds.height - 120, width: 100, height: 50)
-            restartButton.setTitle("Try again", for: .normal)
+            restartButton.frame = CGRect(x: weakSelf.view.bounds.width/2 - 100 ,y: weakSelf.view.bounds.height - 120, width: 200, height: 50)
+            restartButton.setTitle("I'll do better next time!", for: .normal)
             restartButton.titleLabel?.font = UIFont(name: "AvenirNext-Heavy", size: 15)
             restartButton.backgroundColor = .red
             restartButton.layer.cornerRadius = 5
@@ -54,8 +54,7 @@ class GameOverViewController: UIViewController {
     
     func buttonPressed(_ sender: UIButton) {
         self.dismiss(animated: true, completion: {
-            self.delegate?.didRestart()
+            self.delegate?.showMainMenu()
         })
-        
     }
 }

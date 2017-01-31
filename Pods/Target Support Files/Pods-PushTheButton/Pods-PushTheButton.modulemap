@@ -1,0 +1,6 @@
+framework module Pods_PushTheButton {
+  umbrella header "Pods-PushTheButton-umbrella.h"
+
+  export *
+  module * { export * }
+}
