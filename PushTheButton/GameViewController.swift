@@ -57,14 +57,14 @@ class GameViewController: UIViewController, GameSceneDelegate, GameOverViewContr
     func valueRelativeToHappy() -> Int {
         if (getHappy() <= 10) {
             return 1
-        } else if (getHappy() <= 20) {
+        } else if (getHappy() <= 68) {
             return 1
-        } else if (getHappy() <= 30) {
-            return 1
-        } else if (getHappy() <= 50) {
+        } else if (getHappy() <= 80) {
             return 2
-        } else {
+        } else if (getHappy() <= 110) {
             return 3
+        } else {
+            return 4
         }
     }
    
@@ -76,18 +76,24 @@ class GameViewController: UIViewController, GameSceneDelegate, GameOverViewContr
             button?.faceLabel.text = "X("
             didEnd()
         } else if (getHappy() <= 10) {
-            button?.faceLabel.text = ":'("
+            button?.faceLabel.text = ":'C"
             score += valueRelativeToHappy()
         } else if (getHappy() <= 20) {
+            button?.faceLabel.text = ":'("
+            score += valueRelativeToHappy()
+        } else if (getHappy() <= 40) {
             button?.faceLabel.text = ":("
             score += valueRelativeToHappy()
-        } else if (getHappy() <= 30) {
+        } else if (getHappy() <= 68) {
             button?.faceLabel.text = ":|"
             score += valueRelativeToHappy()
-        } else if (getHappy() <= 50) {
+        } else if (getHappy() <= 69) {
+            button?.faceLabel.text = ";)"
+            score += valueRelativeToHappy()
+        }  else if (getHappy() <= 110) {
             button?.faceLabel.text = ":)"
             score += valueRelativeToHappy()
-        } else {
+        }  else {
             button?.faceLabel.text = ":D"
             score += valueRelativeToHappy()
         }
