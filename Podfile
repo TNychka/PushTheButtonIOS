@@ -4,4 +4,5 @@ use_frameworks!
 
 target 'PushTheButton' do
     pod 'Alamofire', '~> 4.3'
+    pod 'Stormpath', '~> 2.0'
 end
