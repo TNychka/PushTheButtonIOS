@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import GameplayKit
+import Stormpath
 
 protocol MainMenuGameViewControllerDelegate {
     func didRestart()
@@ -29,14 +30,14 @@ class MainMenuGameViewController: UIViewController {
             mainMenuLabel.textAlignment = .center
             mainMenuLabel.frame = CGRect(x: weakSelf.view.bounds.width/2 - 150 ,y: weakSelf.view.bounds.height/2,width: 300,height: 100)
             
-            startButton.frame = CGRect(x: weakSelf.view.bounds.width/2 - 50 ,y: weakSelf.view.bounds.height - 120, width: 100, height: 50)
+            startButton.frame = CGRect(x: weakSelf.view.bounds.width/2 - 50 ,y: weakSelf.view.bounds.height - 100, width: 100, height: 50)
             startButton.setTitle("Start Game", for: .normal)
             startButton.titleLabel?.font = UIFont(name: "AvenirNext-Heavy", size: 15)
             startButton.backgroundColor = .red
             startButton.layer.cornerRadius = 5
             startButton.addTarget(weakSelf, action: #selector(MainMenuGameViewController.startGame(_:)), for: UIControlEvents.touchUpInside)
             
-            loginButton.frame = CGRect(x: weakSelf.view.bounds.width/2 - 50 ,y: weakSelf.view.bounds.height - 120, width: 100, height: 50)
+            loginButton.frame = CGRect(x: weakSelf.view.bounds.width/2 - 50 ,y: weakSelf.view.bounds.height - 160, width: 100, height: 50)
             loginButton.setTitle("Login", for: .normal)
             loginButton.titleLabel?.font = UIFont(name: "AvenirNext-Heavy", size: 15)
             loginButton.backgroundColor = .red
@@ -47,7 +48,7 @@ class MainMenuGameViewController: UIViewController {
             weakSelf.view.addSubview(startButton)
             weakSelf.view.addSubview(mainMenuLabel)
             
-            weakSelf.view.backgroundColor = UIColor.black
+            weakSelf.view.tintColor = UIColor.black
         }
     }
     
@@ -96,9 +97,8 @@ class MainMenuGameViewController: UIViewController {
         }, completion: { _ in
             let delay = Int(1 * Double(1000))
             DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(delay)) {
-                self.dismiss(animated: false, completion: {
-                    self.delegate?.didRestart()
-                })
+                getReadyView.removeFromSuperview()
+                self.navigationController?.pushViewController(GameViewController(), animated: false)
             }
         })
     }

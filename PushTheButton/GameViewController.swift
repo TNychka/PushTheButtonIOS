@@ -11,7 +11,7 @@ import SpriteKit
 import GameplayKit
 import Alamofire
 
-class GameViewController: UIViewController, GameSceneDelegate, GameOverViewControllerDelegate, MainMenuGameViewControllerDelegate {
+class GameViewController: UIViewController, GameSceneDelegate, GameOverViewControllerDelegate {
     
     var button: PushButtonSprite?
     var gameScene: GameScene?
@@ -20,17 +20,18 @@ class GameViewController: UIViewController, GameSceneDelegate, GameOverViewContr
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view = SKView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height))
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        initializeGame()
+        didRestart()
     }
-
+    
     override var shouldAutorotate: Bool {
         return true
     }
-
+    
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         if UIDevice.current.userInterfaceIdiom == .phone {
             return .allButUpsideDown
@@ -38,21 +39,16 @@ class GameViewController: UIViewController, GameSceneDelegate, GameOverViewContr
             return .all
         }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Release any cached data, images, etc that aren't in use.
     }
-
+    
     override var prefersStatusBarHidden: Bool {
         return true
     }
     
-    func showMainMenu() {
-        let mainMenu = MainMenuGameViewController()
-        mainMenu.delegate = self
-        self.present(mainMenu, animated: false, completion: nil)
-    }
     
     func valueRelativeToHappy() -> Int {
         if (getHappy() <= 10) {
@@ -67,7 +63,7 @@ class GameViewController: UIViewController, GameSceneDelegate, GameOverViewContr
             return 4
         }
     }
-   
+    
     func updateButton() {
         if let button = button {
             button.happy -= 1
@@ -100,27 +96,24 @@ class GameViewController: UIViewController, GameSceneDelegate, GameOverViewContr
     }
     
     func didEnd() {
+        self.view.isUserInteractionEnabled = false
         tick?.invalidate()
         tick = nil
         let gameOver = GameOverViewController()
         gameOver.delegate = self
-        self.present(gameOver, animated: true, completion: {
-            self.gameScene?.removeAllChildren()
-            self.gameScene = nil
-            self.score = 0
-            self.button = nil
-        })
-    }
-    
-    var firstStart: Bool = true
-    func initializeGame() {
-        if (firstStart) {
-            firstStart = false
-            showMainMenu()
+        let when = DispatchTime.now() + 2 // change 2 to desired number of seconds
+        DispatchQueue.main.asyncAfter(deadline: when) {
+            self.navigationController?.pushViewController(gameOver, animated: true) {
+                self.score = 0
+                self.gameScene?.removeAllChildren()
+                self.gameScene = nil
+                self.button = nil
+            }
         }
     }
     
     func didRestart() {
+        self.view.isUserInteractionEnabled = true
         self.gameScene = nil
         score = 0
         let width = view.bounds.width/2
@@ -166,5 +159,22 @@ class GameViewController: UIViewController, GameSceneDelegate, GameOverViewContr
     
     func getScore() -> Int {
         return score
+    }
+}
+
+extension UINavigationController {
+    public func pushViewController(
+        _ viewController: UIViewController,
+        animated: Bool,
+        completion: @escaping (Void) -> Void)
+    {
+        pushViewController(viewController, animated: animated)
+        
+        guard animated, let coordinator = transitionCoordinator else {
+            completion()
+            return
+        }
+        
+        coordinator.animate(alongsideTransition: nil) { _ in completion() }
     }
 }

@@ -11,7 +11,6 @@ import SpriteKit
 import GameplayKit
 
 protocol GameOverViewControllerDelegate {
-    func showMainMenu()
     func getScore() -> Int
 }
 
@@ -29,15 +28,18 @@ class GameOverViewController: UIViewController {
             restartLabel.font = UIFont(name: "AvenirNext-Heavy", size: 20)
             restartLabel.textColor = UIColor.white
             restartLabel.textAlignment = .center
-            restartLabel.frame = CGRect(x: weakSelf.view.bounds.width/2 - 150 ,y: weakSelf.view.bounds.height/2,width: 300,height: 100)
+            restartLabel.frame = CGRect(x: weakSelf.view.bounds.width/2 - 150 ,y: weakSelf.view.bounds.height - 10,width: 300,height: 100)
+            
             
             scoreLabel.text = "Final Score: \(self.delegate!.getScore())"
             scoreLabel.font = UIFont(name: "AvenirNext-Heavy", size: 20)
             scoreLabel.textColor = UIColor.white
             scoreLabel.textAlignment = .center
-            scoreLabel.frame = CGRect(x: weakSelf.view.bounds.width/2 - 150 ,y: weakSelf.view.bounds.height/2 + 30,width: 300,height: 100)
+            scoreLabel.frame = CGRect(x: weakSelf.view.bounds.width/2 - 150 ,y: weakSelf.view.bounds.height-50 ,width: 300,height: 100)
             
-            restartButton.frame = CGRect(x: weakSelf.view.bounds.width/2 - 100 ,y: weakSelf.view.bounds.height - 120, width: 200, height: 50)
+            
+            
+            restartButton.frame = CGRect(x: weakSelf.view.bounds.width/2 - 100 ,y: 20, width: 200, height: 50)
             restartButton.setTitle("I'll do better next time!", for: .normal)
             restartButton.titleLabel?.font = UIFont(name: "AvenirNext-Heavy", size: 15)
             restartButton.backgroundColor = .red
@@ -53,8 +55,6 @@ class GameOverViewController: UIViewController {
     }
     
     func buttonPressed(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: {
-            self.delegate?.showMainMenu()
-        })
+        navigationController?.popToRootViewController(animated: true);
     }
 }
