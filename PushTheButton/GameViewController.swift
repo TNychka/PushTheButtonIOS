@@ -66,7 +66,9 @@ class GameViewController: UIViewController, GameSceneDelegate, GameOverViewContr
     
     func updateButton() {
         if let button = button {
-            button.happy -= 1
+            if button.happy > 0 {
+                button.happy -= 1
+            }
         }
         if (getHappy() <= 0){
             button?.faceLabel.text = "X("

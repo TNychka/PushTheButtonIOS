@@ -20,6 +20,7 @@
 		B752D6041E401CF70079E3F0 /* MainMenuGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B752D6031E401CF70079E3F0 /* MainMenuGameViewController.swift */; };
 		B78868D61E40187400C6309D /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = B78868D51E40187400C6309D /* Podfile */; };
 		B79EC4CC1E346B95001681CB /* PushButtonSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79EC4CB1E346B95001681CB /* PushButtonSprite.swift */; };
+		B7D293B71E4A71CC00DCF248 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D293B61E4A71CC00DCF248 /* LoginViewController.swift */; };
 		B7F991481E3488D4006787A6 /* GameOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F991471E3488D4006787A6 /* GameOverViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +63,7 @@
 		B752D6031E401CF70079E3F0 /* MainMenuGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuGameViewController.swift; sourceTree = "<group>"; };
 		B78868D51E40187400C6309D /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		B79EC4CB1E346B95001681CB /* PushButtonSprite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushButtonSprite.swift; sourceTree = "<group>"; };
+		B7D293B61E4A71CC00DCF248 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B7F991471E3488D4006787A6 /* GameOverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -141,6 +143,7 @@
 				B752D6031E401CF70079E3F0 /* MainMenuGameViewController.swift */,
 				B71A324C1E341B970053206F /* GameViewController.swift */,
 				B7F991471E3488D4006787A6 /* GameOverViewController.swift */,
+				B7D293B61E4A71CC00DCF248 /* LoginViewController.swift */,
 				B71A32511E341B970053206F /* Assets.xcassets */,
 				B71A324E1E341B970053206F /* Main.storyboard */,
 				B71A32531E341B970053206F /* LaunchScreen.storyboard */,
@@ -354,6 +357,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7D293B71E4A71CC00DCF248 /* LoginViewController.swift in Sources */,
 				B71A324B1E341B970053206F /* GameScene.swift in Sources */,
 				B71A324D1E341B970053206F /* GameViewController.swift in Sources */,
 				B752D6041E401CF70079E3F0 /* MainMenuGameViewController.swift in Sources */,

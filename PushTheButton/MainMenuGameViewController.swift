@@ -11,13 +11,11 @@ import Alamofire
 import GameplayKit
 import Stormpath
 
-protocol MainMenuGameViewControllerDelegate {
-    func didRestart()
-}
+
 
 class MainMenuGameViewController: UIViewController {
-    var delegate: MainMenuGameViewControllerDelegate?
     override func viewDidLoad() {
+        super.viewDidLoad()
         weak var weakSelf = self
         if let weakSelf = weakSelf {
             let mainMenuLabel = UILabel()
@@ -74,7 +72,7 @@ class MainMenuGameViewController: UIViewController {
     }
     
     func login(_ sender: UIButton) {
-        
+        self.navigationController?.pushViewController(LoginViewController(), animated: false)
     }
     
     func startGame(_ sender: UIButton) {
