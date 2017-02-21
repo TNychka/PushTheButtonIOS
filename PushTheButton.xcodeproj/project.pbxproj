@@ -18,6 +18,22 @@
 		B71A32601E341B970053206F /* PushTheButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71A325F1E341B970053206F /* PushTheButtonTests.swift */; };
 		B71A326B1E341B970053206F /* PushTheButtonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71A326A1E341B970053206F /* PushTheButtonUITests.swift */; };
 		B752D6041E401CF70079E3F0 /* MainMenuGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B752D6031E401CF70079E3F0 /* MainMenuGameViewController.swift */; };
+		B7752B501E5BD2BD009C076D /* GameOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F991471E3488D4006787A6 /* GameOverViewController.swift */; };
+		B7752B511E5BD2BD009C076D /* GameOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F991471E3488D4006787A6 /* GameOverViewController.swift */; };
+		B7752B521E5BD2C3009C076D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71A32441E341B970053206F /* AppDelegate.swift */; };
+		B7752B531E5BD2C3009C076D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71A32441E341B970053206F /* AppDelegate.swift */; };
+		B7752B541E5BD2C6009C076D /* PushButtonSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79EC4CB1E346B95001681CB /* PushButtonSprite.swift */; };
+		B7752B551E5BD2C6009C076D /* PushButtonSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79EC4CB1E346B95001681CB /* PushButtonSprite.swift */; };
+		B7752B561E5BD2C8009C076D /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71A324A1E341B970053206F /* GameScene.swift */; };
+		B7752B571E5BD2C8009C076D /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71A324A1E341B970053206F /* GameScene.swift */; };
+		B7752B581E5BD2CB009C076D /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = B71A32461E341B970053206F /* GameScene.sks */; };
+		B7752B591E5BD2CC009C076D /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = B71A32461E341B970053206F /* GameScene.sks */; };
+		B7752B5A1E5BD2CE009C076D /* MainMenuGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B752D6031E401CF70079E3F0 /* MainMenuGameViewController.swift */; };
+		B7752B5B1E5BD2CF009C076D /* MainMenuGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B752D6031E401CF70079E3F0 /* MainMenuGameViewController.swift */; };
+		B7752B5C1E5BD2D2009C076D /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71A324C1E341B970053206F /* GameViewController.swift */; };
+		B7752B5D1E5BD2D2009C076D /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71A324C1E341B970053206F /* GameViewController.swift */; };
+		B7752B5E1E5BD2D6009C076D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D293B61E4A71CC00DCF248 /* LoginViewController.swift */; };
+		B7752B5F1E5BD2D7009C076D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D293B61E4A71CC00DCF248 /* LoginViewController.swift */; };
 		B78868D61E40187400C6309D /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = B78868D51E40187400C6309D /* Podfile */; };
 		B79EC4CC1E346B95001681CB /* PushButtonSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79EC4CB1E346B95001681CB /* PushButtonSprite.swift */; };
 		B7D293B71E4A71CC00DCF248 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D293B61E4A71CC00DCF248 /* LoginViewController.swift */; };
@@ -292,6 +308,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7752B581E5BD2CB009C076D /* GameScene.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,6 +316,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7752B591E5BD2CC009C076D /* GameScene.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,6 +389,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7752B5C1E5BD2D2009C076D /* GameViewController.swift in Sources */,
+				B7752B561E5BD2C8009C076D /* GameScene.swift in Sources */,
+				B7752B541E5BD2C6009C076D /* PushButtonSprite.swift in Sources */,
+				B7752B5A1E5BD2CE009C076D /* MainMenuGameViewController.swift in Sources */,
+				B7752B5E1E5BD2D6009C076D /* LoginViewController.swift in Sources */,
+				B7752B531E5BD2C3009C076D /* AppDelegate.swift in Sources */,
+				B7752B501E5BD2BD009C076D /* GameOverViewController.swift in Sources */,
 				B71A32601E341B970053206F /* PushTheButtonTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -379,6 +404,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7752B5D1E5BD2D2009C076D /* GameViewController.swift in Sources */,
+				B7752B571E5BD2C8009C076D /* GameScene.swift in Sources */,
+				B7752B551E5BD2C6009C076D /* PushButtonSprite.swift in Sources */,
+				B7752B5B1E5BD2CF009C076D /* MainMenuGameViewController.swift in Sources */,
+				B7752B5F1E5BD2D7009C076D /* LoginViewController.swift in Sources */,
+				B7752B521E5BD2C3009C076D /* AppDelegate.swift in Sources */,
+				B7752B511E5BD2BD009C076D /* GameOverViewController.swift in Sources */,
 				B71A326B1E341B970053206F /* PushTheButtonUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

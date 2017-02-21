@@ -10,17 +10,21 @@ import UIKit
 import Alamofire
 import GameplayKit
 import Stormpath
+import KeychainSwift
 
 
 
 class MainMenuGameViewController: UIViewController {
+    var keychain: KeychainSwift?
+    var loginButton: UIButton?
     override func viewDidLoad() {
         super.viewDidLoad()
         weak var weakSelf = self
         if let weakSelf = weakSelf {
+            keychain = KeychainSwift()
             let mainMenuLabel = UILabel()
             let startButton = UIButton()
-            let loginButton = UIButton()
+            loginButton = UIButton()
             
             mainMenuLabel.text = "Push the Button!"
             mainMenuLabel.font = UIFont(name: "AvenirNext-Heavy", size: 30)
@@ -28,25 +32,36 @@ class MainMenuGameViewController: UIViewController {
             mainMenuLabel.textAlignment = .center
             mainMenuLabel.frame = CGRect(x: weakSelf.view.bounds.width/2 - 150 ,y: weakSelf.view.bounds.height/2,width: 300,height: 100)
             
-            startButton.frame = CGRect(x: weakSelf.view.bounds.width/2 - 50 ,y: weakSelf.view.bounds.height - 100, width: 100, height: 50)
+            startButton.frame = CGRect(x: weakSelf.view.bounds.width/2 - 50 ,y: weakSelf.view.bounds.height - 200, width: 100, height: 50)
             startButton.setTitle("Start Game", for: .normal)
             startButton.titleLabel?.font = UIFont(name: "AvenirNext-Heavy", size: 15)
             startButton.backgroundColor = .red
             startButton.layer.cornerRadius = 5
             startButton.addTarget(weakSelf, action: #selector(MainMenuGameViewController.startGame(_:)), for: UIControlEvents.touchUpInside)
             
-            loginButton.frame = CGRect(x: weakSelf.view.bounds.width/2 - 50 ,y: weakSelf.view.bounds.height - 160, width: 100, height: 50)
-            loginButton.setTitle("Login", for: .normal)
-            loginButton.titleLabel?.font = UIFont(name: "AvenirNext-Heavy", size: 15)
-            loginButton.backgroundColor = .red
-            loginButton.layer.cornerRadius = 5
-            loginButton.addTarget(weakSelf, action: #selector(MainMenuGameViewController.login(_:)), for: UIControlEvents.touchUpInside)
-            
-            weakSelf.view.addSubview(loginButton)
+            loginButton!.frame = CGRect(x: weakSelf.view.bounds.width/2 - 50 ,y: startButton.frame.maxY + 20, width: 100, height: 50)
+            loginButton!.setTitle("Login", for: .normal)
+            loginButton!.titleLabel?.font = UIFont(name: "AvenirNext-Heavy", size: 15)
+            loginButton!.backgroundColor = .red
+            loginButton!.layer.cornerRadius = 5
+            loginButton!.addTarget(weakSelf, action: #selector(MainMenuGameViewController.login(_:)), for: UIControlEvents.touchUpInside)
+            if(!keychain!.getBool("isLoggedIn")!){
+                weakSelf.view.addSubview(loginButton!)
+            }
             weakSelf.view.addSubview(startButton)
             weakSelf.view.addSubview(mainMenuLabel)
             
             weakSelf.view.tintColor = UIColor.black
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if let loginButton = loginButton {
+            if (keychain?.getBool("isLoggedIn"))! {
+                loginButton.removeFromSuperview()
+            } else {
+                self.view.addSubview(loginButton)
+            }
         }
     }
     
