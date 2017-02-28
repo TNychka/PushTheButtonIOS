@@ -136,52 +136,26 @@ class LoginViewController: UIViewController {
                 Stormpath.sharedSession.login(user!+"@pushTheButton.com", password: pass!) { success, error in
                     guard error == nil else {
                         let newUser = RegistrationModel(email: user!+"@pushTheButton.com", password: pass!)
-                        Stormpath.sharedSession.register(newUser)
-                        Stormpath.sharedSession.login(user!+"@pushTheButton.com", password: pass!)
-                        weakSelf.keychain?.set(true, forKey: "isLoggedIn")
-                        Stormpath.sharedSession.refreshAccessToken()
-                        weakSelf.navigationController?.popToRootViewController(animated: true)
+                        newUser.givenName = "Steve"
+                        newUser.surname = "Stevo"
+                        Stormpath.sharedSession.register(newUser) {success, error in
+                            guard error == nil else {
+                                weakSelf.titleLabel?.text = "No account found and error registering, please ensure password is 8 chars, contains a capital and a number"
+                                weakSelf.titleLabel?.font = UIFont(name: "AvenirNext-Heavy", size: 12)
+                                return
+                            }
+                            weakSelf.keychain?.set(true, forKey: "isLoggedIn")
+                            Stormpath.sharedSession.login(user!+"@pushTheButton.com", password: pass!) { success, error in
+                                weakSelf.navigationController?.popToRootViewController(animated: true)
+                            }
+                        }
                         return
                     }
                     weakSelf.keychain?.set(true, forKey: "isLoggedIn")
+                    print(Stormpath.sharedSession.me())
                     Stormpath.sharedSession.refreshAccessToken()
                     weakSelf.navigationController?.popToRootViewController(animated: true)
                 }
-                
-                //                Alamofire.request("https://fierce-savannah-51444.herokuapp.com/logout", method: .post, parameters: parameters).validate(statusCode: 200...299).responseJSON(completionHandler: { response in
-                //                    Alamofire.request("https://fierce-savannah-51444.herokuapp.com/login", method: .post, parameters: parameters).validate(statusCode: 200...299).responseJSON(completionHandler: { response in
-                //                        if (response.result.isSuccess) {
-                //                            let JSON = response.result.value as! NSDictionary
-                //                            weakSelf.keychain?.set(user!, forKey: "username")
-                //                            weakSelf.keychain?.set(pass!, forKey: "password")
-                //                            weakSelf.keychain?.set(true, forKey: "isLoggedIn")
-                //                            let cookies = HTTPCookie.cookies(withResponseHeaderFields: response.request!.allHTTPHeaderFields!, for: (response.request?.url!)!)
-                //                            Alamofire.SessionManager.shared.session.configuration.HTTPCookieStorage?.setCookies(cookies, forURL: (response.request?.url!)!, mainDocumentURL: nil)
-                //                            Alamofire.request("https://fierce-savannah-51444.herokuapp.com/oauth/token", method: .get).validate(statusCode: 200...299).responseJSON(completionHandler: { response in
-                //                                print(response.data)
-                //                            })
-                //                            weakSelf.navigationController?.popToRootViewController(animated: true)
-                //                        } else {
-                //                            parameters = ["givenName": user!, "surname": user!, "email":user!+"@pushTheButton.com", "password":pass!]
-                //                            Alamofire.request("https://fierce-savannah-51444.herokuapp.com/register", method: .post, parameters: parameters).validate(statusCode: 200...299).responseJSON(completionHandler: { response in
-                //                                if(response.result.isSuccess){
-                //                                    weakSelf.keychain?.set(user!, forKey: "username")
-                //                                    weakSelf.keychain?.set(pass!, forKey: "password")
-                //                                    weakSelf.keychain?.set(true, forKey: "isLoggedIn")
-                //                                    Alamofire.request("https://fierce-savannah-51444.herokuapp.com/oauth/token", method: .get).validate(statusCode: 200...299).responseJSON(completionHandler: { response in
-                //                                        print(response.data)
-                //                                    })
-                //                                    weakSelf.navigationController?.popToRootViewController(animated: true)
-                //                                } else {
-                //                                    weakSelf.titleLabel?.text = "No account found and error registering, please ensure password is 8 chars, contains a capital and a number"
-                //
-                //                                    weakSelf.titleLabel?.font = UIFont(name: "AvenirNext-Heavy", size: 12)
-                //
-                //                                }
-                //                            })
-                //                        }
-                //                    })
-                //                })
             }
         }
     }

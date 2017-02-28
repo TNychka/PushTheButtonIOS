@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        Stormpath.sharedSession.configuration.APIURL = URL(string: "https://api.stormpath.com/v1/applications/Vih8qeNMjxDOXLkH9niDM")!
+        Stormpath.sharedSession.configuration.APIURL = URL(string: "https://fierce-savannah-51444.herokuapp.com")!
 
         self.window = UIWindow(frame: UIScreen.main.bounds)
         let nav1 = UINavigationController()

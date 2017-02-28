@@ -45,7 +45,7 @@ class MainMenuGameViewController: UIViewController {
             loginButton!.backgroundColor = .red
             loginButton!.layer.cornerRadius = 5
             loginButton!.addTarget(weakSelf, action: #selector(MainMenuGameViewController.login(_:)), for: UIControlEvents.touchUpInside)
-            if(!keychain!.getBool("isLoggedIn")!){
+            if(keychain!.getBool("isLoggedIn") == nil || !keychain!.getBool("isLoggedIn")!){
                 weakSelf.view.addSubview(loginButton!)
             }
             weakSelf.view.addSubview(startButton)
@@ -57,7 +57,7 @@ class MainMenuGameViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         if let loginButton = loginButton {
-            if (keychain?.getBool("isLoggedIn"))! {
+            if (keychain!.getBool("isLoggedIn") != nil && keychain!.getBool("isLoggedIn")!) {
                 loginButton.removeFromSuperview()
             } else {
                 self.view.addSubview(loginButton)
