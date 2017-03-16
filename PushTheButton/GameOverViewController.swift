@@ -89,8 +89,7 @@ class GameOverViewController: UIViewController {
         } else {
             let accessToken = Stormpath.sharedSession.accessToken
             let headers = ["Authorization": "Bearer " + accessToken!]
-            //"https://fierce-savannah-51444.herokuapp.com/game/setNewScore"
-            Alamofire.request("http://localhost:8080/game/setNewScore", method: .post, parameters: parameters, headers: headers).validate(statusCode: 200...299).responseString(completionHandler: { response in
+            Alamofire.request("https://fierce-savannah-51444.herokuapp.com/game/setNewScore", method: .post, parameters: parameters, headers: headers).validate(statusCode: 200...299).responseString(completionHandler: { response in
                 if let json = response.result.value {
                     completion(json)
                 } else {
